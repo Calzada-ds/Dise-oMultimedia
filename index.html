@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portal Académico UPIICSA</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="header-logo">
+                <img src="img/logo.png" alt="Logo UPIICSA" class="logo">
+                <h1>Portal de Servicios</h1>
+            </div>
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="index.html" class="active">Inicio</a></li>
+                    <li><a href="titulacion.html">Titulación</a></li>
+                    <li><a href="servicio-social.html">Servicio Social</a></li>
+                    <li><a href="practicas.html">Prácticas Profesionales</a></li>
+                    <li><a href="documentacion.html">Documentación</a></li>
+                </ul>
+            </nav>
+            <button class="mobile-menu-btn">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Section with Carousel -->
+        <section class="hero-section">
+            <div class="carousel-container">
+                <div class="carousel-slides">
+                    <div class="carousel-slide active">
+                        <img src="img/Titulacion.png" alt="Campus UPIICSA">
+                    </div>
+                    <div class="carousel-slide">
+                        <img src="img/Documentacion.png" alt="Estudiantes UPIICSA">
+                    </div>
+                    <div class="carousel-slide">
+                        <img src="img/PracticasProfesionales.png" alt="Instalaciones UPIICSA">
+                    </div>
+                </div>
+                <button class="carousel-btn prev-btn">
+                    <i class="fas fa-chevron-left"></i>
+                </button>
+                <button class="carousel-btn next-btn">
+                    <i class="fas fa-chevron-right"></i>
+                </button>
+                <div class="carousel-dots">
+                    <span class="dot active" data-index="0"></span>
+                    <span class="dot" data-index="1"></span>
+                    <span class="dot" data-index="2"></span>
+                </div>
+            </div>
+            <div class="hero-content">
+                <h2>Bienvenido al Portal de Servicios al estudiante de la UPIICSA</h2>
+                <p>Tu centro de información para titulación, servicio social, prácticas profesionales y más</p>
+            </div>
+        </section>
+
+        <!-- Trámites Carousel Section -->
+        <section class="procedures-section">
+            <div class="container">
+                <h2 class="section-title">Trámites Principales</h2>
+                <div class="procedures-carousel">
+                    <div class="procedures-container">
+                        <div class="procedure-card">
+                            <a href="servicio-social.html">
+                                <div class="procedure-content">
+                                    <h3>Trámite 1</h3>
+                                    <span>Servicio Social</span>
+                                </div>
+                            </a>
+                        </div>
+
+                        <div class="procedure-card">
+                            <a href="practicas.html">
+                                <div class="procedure-content">
+                                    <h3>Trámite 2</h3>
+                                    <span>Prácticas Profesionales</span>
+                                </div>
+                            </a>
+                        </div>
+
+                        <div class="procedure-card">
+                            <a href="documentacion.html">
+                                <div class="procedure-content">
+                                    <h3>Trámite 3</h3>
+                                    <span>Documentación</span>
+                                </div>
+                            </a>
+                        </div>
+
+                        <div class="procedure-card">
+                            <a href="titulacion.html">
+                                <div class="procedure-content">
+                                    <h3>Trámite 4</h3>
+                                    <span>Titulación</span>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Chat Button -->
+        <button class="chat-button" id="chat-button">
+            <i class="fas fa-comment-dots"></i>
+        </button>
+
+        <!-- Chat Widget -->
+        <div id="chat-container" class="chat-container hidden">
+            <div class="chat-header">
+                <h3>Asistente Virtual UPIICSA</h3>
+                <p>Respuestas inmediatas a tus dudas</p>
+                <button class="close-chat" id="close-chat">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div id="chat-messages" class="chat-messages">
+                <!-- Aquí aparecerán los mensajes del chat -->
+            </div>
+            <div class="chat-input">
+                <input type="text" id="user-message" placeholder="Escribe tu mensaje...">
+                <button id="send-message">
+                    <i class="fas fa-paper-plane"></i>
+                </button>
+            </div>
+        </div>
+    </main>
+
+    <script type="text/javascript">
+        // Abrir el chat cuando se haga clic en el botón de chat
+        document.getElementById("chat-button").addEventListener("click", function() {
+            document.getElementById("chat-container").classList.remove("hidden");
+        });
+
+        // Cerrar el chat cuando se haga clic en el botón de cerrar
+        document.getElementById("close-chat").addEventListener("click", function() {
+            document.getElementById("chat-container").classList.add("hidden");
+        });
+
+        // Cargar e inicializar el widget de Convai
+        (function() {
+            var script = document.createElement("script");
+            script.src = "https://convai.com/widget.js"; // URL del widget de Convai
+            script.async = true;
+            script.onload = function() {
+                // Inicializa el widget con tu configuración
+                ConvaiWidget.init({
+                    agent_id: 'ac53f5b4-ffaf-11ef-af57-42010a7be01a',  // ID de tu agente creado en Convai
+                    api_key: '609325429182fa1c186ba972d30198f6',    // API Key de tu cuenta de Convai
+                });
+            };
+            document.body.appendChild(script);
+        })();
+
+        // Manejo de mensajes del chat
+        const chatMessages = document.getElementById("chat-messages");
+        const userMessageInput = document.getElementById("user-message");
+        const sendMessageBtn = document.getElementById("send-message");
+
+        // Función para añadir mensajes al chat
+        function addMessage(text, isUser = false) {
+            const messageDiv = document.createElement("div");
+            messageDiv.className = `message ${isUser ? "user" : "bot"}`;
+
+            const paragraph = document.createElement("p");
+            paragraph.textContent = text;
+
+            messageDiv.appendChild(paragraph);
+            chatMessages.appendChild(messageDiv);
+            chatMessages.scrollTop = chatMessages.scrollHeight;
+        }
+
+        // Evento para el botón de enviar mensaje
+        sendMessageBtn.addEventListener("click", () => {
+            const message = userMessageInput.value.trim();
+            if (message) {
+                addMessage(message, true); // Mostrar mensaje del usuario
+                userMessageInput.value = ""; // Limpiar input
+                setTimeout(() => {
+                    addMessage("Esperando respuesta del asistente..."); // Mensaje de espera
+                    fetch('chatbot.php', { // Conexión con el backend PHP que maneja la API de Convai
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/x-www-form-urlencoded',
+                        },
+                        body: `message=${encodeURIComponent(message)}`
+                    })
+                    .then(response => response.text())
+                    .then(data => {
+                        addMessage(data, false); // Mostrar respuesta del bot
+                    })
+                    .catch(error => {
+                        console.error("Error:", error);
+                        addMessage("Lo siento, hubo un error. Intenta de nuevo.", false);
+                    });
+                }, 500);
+            }
+        });
+
+        userMessageInput.addEventListener("keypress", (e) => {
+            if (e.key === "Enter") {
+                sendMessageBtn.click();
+            }
+        });
+    </script>
+
+    <script src="js/main.js"></script>
+    <script src="js/carousel.js"></script>
+    <script src="js/chat.js"></script>
+</body>
+</html>
